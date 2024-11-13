@@ -23,7 +23,7 @@ function App() {
     formData.append("image", image);
 
     try {
-      const response = await fetch("http://rishbh.pythonanywhere.com/upload", {
+      const response = await fetch("https://rishbh.pythonanywhere.com/upload", {
         method: "POST",
         body: formData,
       });
