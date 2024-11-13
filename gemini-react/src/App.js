@@ -23,7 +23,7 @@ function App() {
     formData.append("image", image);
 
     try {
-      const response = await fetch("https://rishbh.pythonanywhere.com/upload", {
+      const response = await fetch("https://insta-captions-and-songs-generator-y6pn-j1nwbns3d.vercel.app/upload", {
         method: "POST",
         body: formData,
       });
