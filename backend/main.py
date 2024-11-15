@@ -32,9 +32,17 @@ def upload_to_gemini(file_storage, mime_type="image/jpeg"):
         print(f"Error uploading file to Gemini: {e}")
         return None
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to the Instagram Assistant API!"})
+
 @app.route('/upload', methods=['POST'])
 def upload():
     if request.method == 'POST':
+        # Check if api key is provided
+        if 'API_KEY' not in os.environ:
+            return jsonify({"error": "API_KEY environment variable is missing"}), 500
+
         # Check if the image file is part of the request
         if 'image' not in request.files:
             return jsonify({"error": "No image file provided"}), 400
